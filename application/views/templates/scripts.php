@@ -36,6 +36,9 @@
 <script src="/assets/vendors/moment/min/moment.min.js"></script>
 <script src="/assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+<!-- Bootstrap Colorpicker -->
+<script src="/assets/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+
 <!-- Datatables -->
 <script src="/assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="/assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>

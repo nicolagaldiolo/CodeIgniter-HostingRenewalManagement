@@ -127,6 +127,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
 
                       <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Da pagare: <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="domain[pay]" required="required">
+                            <option selected value="1">Si</option>    
+                            <option value="0">No</option>    
+                          </select>
+                        </div>                        
+                      </div>
+
+                      <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Note</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <textarea name="domain[note]" class="form-control col-md-7 col-xs-12"></textarea>
@@ -137,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
                           <button id="send" type="submit" class="btn btn-success">Submit</button>
-                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="reset" class="btn btn-primary">Cancel</button>
                         </div>
                       </div>
                     </form>

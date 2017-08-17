@@ -81,7 +81,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Label</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="" value="" class="form-control col-md-7 col-xs-12">
+                          <div class="input-group demo2">
+                            <input type="text" name="provider[label]" value="#e01ab5" class="form-control" />
+                            <span class="input-group-addon"><i></i></span>
+                          </div>
                         </div>
                       </div>
 
@@ -89,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="form-group">
                         <div class="col-md-6 col-md-offset-3">
                           <button id="send" type="submit" class="btn btn-success">Submit</button>
-                          <button type="submit" class="btn btn-primary">Cancel</button>
+                          <button type="reset" class="btn btn-primary">Cancel</button>
                         </div>
                       </div>
                     </form>

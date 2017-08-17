@@ -37,11 +37,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <?php endif; ?>
 
           <div class="row">
-            <?php if(!empty($earnByMounth)) : ?>
             <div class="col-md-8 col-sm-7 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>Line graph<small>Sessions</small></h2>
+                  <h2>Bilancio annuale<small>Sessions</small></h2>
                   <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -60,16 +59,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                  <canvas id="dashboardlineChart"></canvas>
+                  <?php if(!empty($earnByMounth)) : ?>  
+                    <canvas id="dashboardlineChart"></canvas>
+                  <?php else : ?>
+                    <div class="alert alert-info alert-dismissible fade in" role="alert">
+                      Nessun servizio attivo
+                    </div>
+                  <?php endif; ?>
                 </div>
               </div>
             </div>
-            <?php endif; ?>
+            
             
             <div class="col-md-4 col-sm-5 col-xs-12">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>In scadenza <small>In scadenza questo mese</small></h2>
+                  <h2>Servizi in scadenza <small>In scadenza questo mese</small></h2>
                   <div class="clearfix"></div>
                 </div>
                 <div class="x_content">

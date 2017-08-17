@@ -15,11 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <?php if(!empty($providers)) : ?>  
-
           <div class="row">
-
-
 
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
@@ -34,39 +30,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <p class="text-muted font-13 m-b-30">
                     The Buttons extension for DataTables provides a common set of options, API methods and styling to display buttons on a page that will interact with a DataTable. The core library provides the based framework upon which plug-ins can built.
                   </p>
-                  <table id="datatable-buttons" class="table table-striped table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Fornitore</th>
-                        <th>Url</th>
-                        <th>Label</th>
-                        <th></th>
-                      </tr>
-                    </thead>
+                  <?php if(!empty($providers)) : ?>  
+                    <table id="datatable-buttons" class="table table-striped table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Fornitore</th>
+                          <th>Url</th>
+                          <th>Label</th>
+                          <th></th>
+                        </tr>
+                      </thead>
 
 
-                    <tbody>
-                      
-                      <?php foreach ($providers as $provider) : ?>
-                      <tr>
-                        <td><?php echo $provider->name; ?></td>
-                        <td><?php echo $provider->website; ?></td>
-                        <td></td>
-                        <td>
-                          <a href="<?php echo site_url("providers/edit/$provider->id"); ?>"><i class="fa fa-pencil"></i></a>
-                          <a href="<?php echo site_url("providers/delete_provider/$provider->id"); ?>"><i class="fa fa-trash-o"></i></a></td>
-                      </tr>
-                      <?php endforeach; ?>
-                    </tbody>
-                  </table>
+                      <tbody>
+                        
+                        <?php foreach ($providers as $provider) : ?>
+                        <tr>
+                          <td><?php echo $provider->name; ?></td>
+                          <td><?php echo $provider->website; ?></td>
+                          <td style="background: <?php echo $provider->label;?>"><?php echo $provider->label; ?></td>
+                          <td>
+                            <a class="btn btn-round btn-default btn-xs" href="<?php echo site_url("providers/edit/$provider->id"); ?>"><i class="fa fa-pencil"></i></a>
+                            <a class="actionDelete btn btn-round btn-default btn-xs" href="<?php echo site_url("providers/delete_provider/$provider->id"); ?>"><i class="fa fa-trash-o"></i></a>
+                          </td>
+                        </tr>
+                        <?php endforeach; ?>
+                      </tbody>
+                    </table>
+                  <?php else: ?>
+                    <div class="alert alert-info alert-dismissible fade in" role="alert">
+                      Nessun fornitore attivo
+                    </div>
+                  <?php endif; ?>
                 </div>
                 
               </div>
-              <a class="btn btn-round btn-success" href="<?php echo site_url("providers/new_provider/"); ?>">Aggiungi fornitore</a>
+              <a class="btn btn-success btn-sm" href="<?php echo site_url("providers/new_provider/"); ?>">Aggiungi fornitore</a>
             </div>
 
           </div>
-          <?php endif; ?>
+          
           
         </div>
         <!-- /page content -->

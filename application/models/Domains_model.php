@@ -10,7 +10,7 @@ class Domains_model extends CI_Model {
   function getDomains($user){
     
     // query lanciata con metodo Active Records
-    $this->db->select('d.id, d.url, p1.name as domain, p2.name as hosting, d.renewal, d.fee, d.note');
+    $this->db->select('d.id, d.url, p1.name as domain, p1.label as domLabel, p2.name as hosting, p2.label as hosLabel, d.renewal, d.pay, d.fee, d.note');
     $this->db->from('domains as d');
     $this->db->join('providers as p1', 'd.domain = p1.id', 'left');
     $this->db->join('providers as p2', 'd.hosting = p2.id', 'left');
@@ -50,8 +50,26 @@ class Domains_model extends CI_Model {
     }
   }
 
+  function paidDomain($id, $user){
+    
+    $data = array(
+      'pay' => 0,
+    );
+  
+    $this->db->where('id', $id);
+    if($user) {
+        $this->db->where('idUser', $user);
+    }
+    $this->db->update('domains', $data);
+
+  }
+
   // U - Update
   function updateDomain($id, $data, $user){
+    
+    //var_dump($data);
+    //die();
+    
     $this->db->where('id', $id);
     if($user) {
         $this->db->where('idUser', $user);

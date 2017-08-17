@@ -12,6 +12,8 @@
 <link href="/assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 <!-- NProgress -->
 <link href="/assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+<!-- Animate.css -->
+<link href="/assets/vendors/animate.css/animate.min.css" rel="stylesheet">
 <!-- iCheck -->
 <link href="/assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
@@ -22,6 +24,9 @@
 <!-- bootstrap-daterangepicker -->
 <link href="/assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
+<!-- Bootstrap Colorpicker -->
+<link href="/assets/vendors/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+
 <!-- Datatables -->
 <link href="/assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
 <link href="/assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -30,4 +35,4 @@
 <link href="/assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom Theme Style -->
-<link href="/assets/build/css/custom.min.css" rel="stylesheet">
+<link href="/assets/build/css/custom.css" rel="stylesheet">

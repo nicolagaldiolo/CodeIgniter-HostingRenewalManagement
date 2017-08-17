@@ -9,7 +9,6 @@ class Dashboard_model extends CI_Model {
 
   function getService($user, $date=FALSE){
     
-    // query lanciata con metodo Active Records
     $this->db->select('*');
     $this->db->from('domains');
     if($user) {
