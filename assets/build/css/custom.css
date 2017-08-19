@@ -155,6 +155,15 @@ html , body{
 .left_col {
     background: #2A3F54
 }
+
+.left_col a{
+color: rgba(255,255,255,0.4);
+}
+
+.left_col a:hover{
+    color:#fff;
+}
+
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
     width: 70px;
