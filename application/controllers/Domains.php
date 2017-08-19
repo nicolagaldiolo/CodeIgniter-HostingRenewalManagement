@@ -33,18 +33,18 @@ class Domains extends MY_Controller {
     }
 
     function edit(){ 
-        $id = $this->uri->segment(3);
-        $user = $this->ion_auth->user()->row();
-        $userId = $user->id;
+      $id = $this->uri->segment(3);
+      $user = $this->ion_auth->user()->row();
+      $userId = $user->id;
 
-        $data['domain'] = $this->domains_model->getDomain($id, $userId);
-        $data['providers'] = $this->providers_model ->getProvidersList($userId);
-        
-        if($data['domain']){
-            $this->load->view('domains/edit', $data);
-        }else{
-            show_404();
-        }
+      $data['domain'] = $this->domains_model->getDomain($id, $userId);
+      $data['providers'] = $this->providers_model ->getProvidersList($userId);
+
+      if($data['domain']){
+          $this->load->view('domains/edit', $data);
+      }else{
+          show_404();
+      }
     }
 
     function update(){

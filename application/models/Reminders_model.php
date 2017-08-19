@@ -16,8 +16,8 @@ class Reminders_model extends CI_Model {
       $this->db->where('MONTH(`renewal`)', 'MONTH(CURRENT_DATE - INTERVAL 1 MONTH)', FALSE);
       $this->db->where('`pay`', 1, FALSE);
     }else{
-      $this->db->where('YEAR(`renewal`)', 'YEAR(CURRENT_DATE)', FALSE);
-      $this->db->where('MONTH(`renewal`)', 'MONTH(CURRENT_DATE)', FALSE);
+      $this->db->where('YEAR(`renewal`)', 'YEAR(CURRENT_DATE + INTERVAL 1 MONTH)', FALSE);
+      $this->db->where('MONTH(`renewal`)', 'MONTH(CURRENT_DATE + INTERVAL 1 MONTH)', FALSE);
     }
 
     $query = $this->db->get();
@@ -39,8 +39,8 @@ class Reminders_model extends CI_Model {
     $data = array(
       'pay' => 1,
     );
-    $this->db->where('YEAR(`renewal`)', 'YEAR(CURRENT_DATE)', FALSE);
-    $this->db->where('MONTH(`renewal`)', 'MONTH(CURRENT_DATE)', FALSE);
+    $this->db->where('YEAR(`renewal`)', 'YEAR(CURRENT_DATE + INTERVAL 1 MONTH)', FALSE);
+    $this->db->where('MONTH(`renewal`)', 'MONTH(CURRENT_DATE + INTERVAL 1 MONTH)', FALSE);
     $this->db->update('domains', $data);
   }
 

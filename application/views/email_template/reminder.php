@@ -9,9 +9,9 @@
       <h3>Ciao, di seguito l'elenco dei servizi in scadenza:</h3>
 
       <div style="padding:15px 20px; background:#f5f5f5;">
-        <h3>Mese corrente</h3>    
+        <h3>Prossimo mese</h3>    
         <?php if(!empty($domainsCurrent)) : ?>    
-          <p>Servizi in scadenza questo mese</p> 
+          <p>Servizi in scadenza il prossimo mese</p> 
           <table width="100%" border="1" cellpadding="0" cellspacing="0">
             <tr>
               <th>Dominio</th>  

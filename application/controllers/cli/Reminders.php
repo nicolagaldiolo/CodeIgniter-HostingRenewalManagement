@@ -41,7 +41,7 @@ class Reminders extends CI_Controller {
 
       }
       // aggiorno la data di scadenza (+1 anno) dei domini scaduti il mese scorso
-      // metto i domini che scadono questo mese nello stato "in scadenza"
+      // metto i domini che scadono il mese prossimo nello stato "in scadenza"
       $this->reminders_model->updateRenewal();
     }
 

@@ -1,7 +1,7 @@
 <!-- footer content -->
 <footer>
   <div class="pull-right">
-    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+    &copy; <?php echo date('Y'); ?> Hosting Manager
   </div>
   <div class="clearfix"></div>
 </footer>
