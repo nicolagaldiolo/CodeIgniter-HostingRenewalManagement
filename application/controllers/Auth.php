@@ -414,10 +414,10 @@ class Auth extends CI_Controller {
     {
         $this->data['title'] = $this->lang->line('create_user_heading');
 
-        if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
-        {
-            redirect('auth', 'refresh');
-        }
+        //if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
+        //{
+        //    redirect('auth', 'refresh');
+        //}
 
         $tables = $this->config->item('tables','ion_auth');
         $identity_column = $this->config->item('identity','ion_auth');
@@ -536,6 +536,7 @@ class Auth extends CI_Controller {
 		// validate form input
 		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'required');
 		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'required');
+		$this->form_validation->set_rules('email', $this->lang->line('edit_user_validation_email_label'), 'required');
 		$this->form_validation->set_rules('phone', $this->lang->line('edit_user_validation_phone_label'), 'required');
 		$this->form_validation->set_rules('company', $this->lang->line('edit_user_validation_company_label'), 'required');
 
@@ -559,6 +560,7 @@ class Auth extends CI_Controller {
 				$data = array(
 					'first_name' => $this->input->post('first_name'),
 					'last_name'  => $this->input->post('last_name'),
+					'email'  => $this->input->post('email'),
 					'company'    => $this->input->post('company'),
 					'phone'      => $this->input->post('phone'),
 				);
@@ -643,6 +645,12 @@ class Auth extends CI_Controller {
 			'id'    => 'last_name',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('last_name', $user->last_name),
+		);
+		$this->data['email'] = array(
+			'name'  => 'email',
+			'id'    => 'email',
+			'type'  => 'text',
+			'value' => $this->form_validation->set_value('email', $user->email),
 		);
 		$this->data['company'] = array(
 			'name'  => 'company',

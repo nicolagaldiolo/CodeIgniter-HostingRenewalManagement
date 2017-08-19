@@ -16,6 +16,11 @@
       </p>
 
       <p>
+            <?php echo lang('edit_user_validation_email_label', 'last_name');?> <br />
+            <?php echo form_input($email);?>
+      </p>
+
+      <p>
             <?php echo lang('edit_user_company_label', 'company');?> <br />
             <?php echo form_input($company);?>
       </p>
