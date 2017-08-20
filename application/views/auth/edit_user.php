@@ -1,71 +1,86 @@
-<h1><?php echo lang('edit_user_heading');?></h1>
-<p><?php echo lang('edit_user_subheading');?></p>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+  <head>
+  <?php $this->load->view('templates/head'); ?>
+    
+  </head>
 
-<div id="infoMessage"><?php echo $message;?></div>
+  <body class="auth">
+    <div id="infoMessage"><?php echo $message;?></div>
+    <div class="container text-center">
+      <div class="main_container">
+        <h1><?php echo lang('edit_user_heading');?></h1>
+        <div class="form-login">
+          <p><?php echo lang('edit_user_subheading');?></p>
+          <?php echo form_open(uri_string(), array('id' => 'myform', 'novalidate' => '', 'class' => 'form-horizontal form-label-left'));?>
 
-<?php echo form_open(uri_string());?>
+            <div class="item form-group">
+              <?php echo lang('edit_user_fname_label', 'first_name');?> <br />
+              <?php echo form_input($first_name);?>
+            </div>
 
-      <p>
-            <?php echo lang('edit_user_fname_label', 'first_name');?> <br />
-            <?php echo form_input($first_name);?>
-      </p>
-
-      <p>
-            <?php echo lang('edit_user_lname_label', 'last_name');?> <br />
-            <?php echo form_input($last_name);?>
-      </p>
-
-      <p>
+            <div class="item form-group"> 
+              <?php echo lang('edit_user_lname_label', 'last_name');?> <br />
+              <?php echo form_input($last_name);?>             
+            </div>
+            <div class="item form-group">   
             <?php echo lang('edit_user_validation_email_label', 'last_name');?> <br />
-            <?php echo form_input($email);?>
-      </p>
-
-      <p>
+            <?php echo form_input($email);?>           
+            </div>
+            <div class="item form-group">    
             <?php echo lang('edit_user_company_label', 'company');?> <br />
-            <?php echo form_input($company);?>
-      </p>
-
-      <p>
+            <?php echo form_input($company);?>          
+            </div>
+            <div class="item form-group">  
             <?php echo lang('edit_user_phone_label', 'phone');?> <br />
-            <?php echo form_input($phone);?>
-      </p>
-
-      <p>
+            <?php echo form_input($phone);?>            
+            </div>
+            <div class="item form-group">   
             <?php echo lang('edit_user_password_label', 'password');?> <br />
-            <?php echo form_input($password);?>
-      </p>
-
-      <p>
+            <?php echo form_input($password);?>           
+            </div>
+            <div class="item form-group"> 
             <?php echo lang('edit_user_password_confirm_label', 'password_confirm');?><br />
-            <?php echo form_input($password_confirm);?>
-      </p>
+            <?php echo form_input($password_confirm);?>             
+            </div>
 
-      <?php if ($this->ion_auth->is_admin()): ?>
+            <?php if ($this->ion_auth->is_admin()): ?>
 
-          <h3><?php echo lang('edit_user_groups_heading');?></h3>
-          <?php foreach ($groups as $group):?>
-              <label class="checkbox">
-              <?php
-                  $gID=$group['id'];
-                  $checked = null;
-                  $item = null;
-                  foreach($currentGroups as $grp) {
-                      if ($gID == $grp->id) {
-                          $checked= ' checked="checked"';
-                      break;
+              <h4><?php echo lang('edit_user_groups_heading');?></h4>
+              <div class="item form-group"> 
+              <?php foreach ($groups as $group):?>
+                  <label class="checkbox">
+                  <?php
+                      $gID=$group['id'];
+                      $checked = null;
+                      $item = null;
+                      foreach($currentGroups as $grp) {
+                          if ($gID == $grp->id) {
+                              $checked= ' checked="checked"';
+                          break;
+                          }
                       }
-                  }
-              ?>
-              <input type="checkbox" name="groups[]" value="<?php echo $group['id'];?>"<?php echo $checked;?>>
-              <?php echo htmlspecialchars($group['name'],ENT_QUOTES,'UTF-8');?>
-              </label>
-          <?php endforeach?>
+                  ?>
+                  <input type="checkbox" name="groups[]" value="<?php echo $group['id'];?>"<?php echo $checked;?>>
+                  <?php echo htmlspecialchars($group['name'],ENT_QUOTES,'UTF-8');?>
+                  </label>
+              <?php endforeach?>
+              </div>
 
-      <?php endif ?>
+            <?php endif ?>
 
-      <?php echo form_hidden('id', $user->id);?>
-      <?php echo form_hidden($csrf); ?>
+            <?php echo form_hidden('id', $user->id);?>
+            <?php echo form_hidden($csrf); ?>
 
-      <p><?php echo form_submit('submit', lang('edit_user_submit_btn'));?></p>
+            <button id="send" type="submit" class="btn btn-success btn-block btn-lg"><?php echo lang('edit_user_submit_btn'); ?></button>
+          <?php echo form_close();?>
+        </div>
+        
+      </div>
+    </div>
 
-<?php echo form_close();?>
+		<?php $this->load->view('templates/scripts'); ?>
+  </body>
+</html>

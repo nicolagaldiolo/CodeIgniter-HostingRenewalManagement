@@ -59,6 +59,7 @@
         <a id="menu_toggle"><i class="fa fa-bars"></i></a>
       </div>
       <?php if(!empty($user_info)) : ?>
+      <?php //echo '<pre>', var_dump($user_info), '</pre>'; ?>
       <ul class="nav navbar-nav navbar-right">
         <li class="">
           <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
@@ -66,6 +67,11 @@
             <span class=" fa fa-angle-down"></span>
           </a>
           <ul class="dropdown-menu dropdown-usermenu pull-right">
+            <li>
+              <a href="<?php echo site_url("auth/"); ?>">
+                <i class="fa fa-users pull-right"></i> Gestisci Utenti
+              </a>
+            </li>  
             <li>
               <a href="<?php echo site_url("auth/edit_user/$user_info->id"); ?>">
                 <i class="fa fa-cog pull-right"></i> Account

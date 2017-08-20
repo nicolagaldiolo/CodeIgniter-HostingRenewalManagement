@@ -5,16 +5,13 @@ class MY_Controller extends CI_Controller {
   public function __construct(){
     parent::__construct();
     
-    $user = $this->ion_auth->user()->row();
-
-    $user->avatar = $this->get_gravatar($user->email);
-
-    $global_data = array('user_info'=> $user);
-
-    $this->load->vars($global_data);
-    
     if (!$this->ion_auth->logged_in()){
       redirect('auth/login', 'refresh');
+    }else{
+      $user = $this->ion_auth->user()->row();
+      $user->avatar = $this->get_gravatar($user->email);
+      $global_data = array('user_info'=> $user);
+      $this->load->vars($global_data);
     }
   }
 

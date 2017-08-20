@@ -1856,7 +1856,7 @@ if (typeof NProgress != 'undefined') {
           this.submit();
 
         return false;
-		});
+			});
 	  
 	  };
 	   

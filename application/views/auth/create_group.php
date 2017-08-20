@@ -1,20 +1,38 @@
-<h1><?php echo lang('create_group_heading');?></h1>
-<p><?php echo lang('create_group_subheading');?></p>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?><!DOCTYPE html>
+<html lang="en">
+  <head>
+  <?php $this->load->view('templates/head'); ?>
+    
+  </head>
 
-<div id="infoMessage"><?php echo $message;?></div>
+  <body class="auth">
+    <div id="infoMessage"><?php echo $message;?></div>
+    <div class="container text-center">
+      <div class="main_container">
+        <h1><?php echo lang('create_group_heading');?></h1>
+        <div class="form-login">
+          <p><?php echo lang('create_group_subheading');?></p>
+          <?php echo form_open("auth/create_group", array('id' => 'myform', 'novalidate' => '', 'class' => 'form-horizontal form-label-left'));?>
 
-<?php echo form_open("auth/create_group");?>
+            <div class="item form-group">
+              <?php echo lang('create_group_name_label', 'group_name');?> <br />
+              <?php echo form_input($group_name);?>
+            </div>
 
-      <p>
-            <?php echo lang('create_group_name_label', 'group_name');?> <br />
-            <?php echo form_input($group_name);?>
-      </p>
+            <div class="item form-group">
+              <?php echo lang('create_group_desc_label', 'description');?> <br />
+              <?php echo form_input($description);?>
+            </div>
 
-      <p>
-            <?php echo lang('create_group_desc_label', 'description');?> <br />
-            <?php echo form_input($description);?>
-      </p>
+            <button id="send" type="submit" class="btn btn-success btn-block btn-lg"><?php echo lang('create_group_submit_btn'); ?></button>
+          <?php echo form_close();?>
+        </div>
+        
+      </div>
+    </div>
 
-      <p><?php echo form_submit('submit', lang('create_group_submit_btn'));?></p>
-
-<?php echo form_close();?>
+		<?php $this->load->view('templates/scripts'); ?>
+  </body>
+</html>
