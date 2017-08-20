@@ -525,7 +525,6 @@ class Auth extends CI_Controller {
                 'id'    => 'company',
                 'type'  => 'text',
 								'value' => $this->form_validation->set_value('company'),
-								'required'  	=> 'required',
 								'class'				=> 'form-control input-lg',
             );
             $this->data['phone'] = array(
@@ -533,7 +532,6 @@ class Auth extends CI_Controller {
                 'id'    => 'phone',
                 'type'  => 'text',
 								'value' => $this->form_validation->set_value('phone'),
-								'required'  	=> 'required',
 								'class'				=> 'form-control input-lg',
             );
             $this->data['password'] = array(
@@ -575,9 +573,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('first_name', $this->lang->line('edit_user_validation_fname_label'), 'required');
 		$this->form_validation->set_rules('last_name', $this->lang->line('edit_user_validation_lname_label'), 'required');
 		$this->form_validation->set_rules('email', $this->lang->line('edit_user_validation_email_label'), 'required');
-		$this->form_validation->set_rules('phone', $this->lang->line('edit_user_validation_phone_label'), 'required');
-		$this->form_validation->set_rules('company', $this->lang->line('edit_user_validation_company_label'), 'required');
-
+		
 		if (isset($_POST) && !empty($_POST))
 		{
 			// do we have a valid request?
@@ -701,7 +697,6 @@ class Auth extends CI_Controller {
 			'id'    => 'company',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('company', $user->company),
-			'required'  	=> 'required',
 			'class'				=> 'form-control input-lg',
 		);
 		$this->data['phone'] = array(
@@ -709,7 +704,6 @@ class Auth extends CI_Controller {
 			'id'    => 'phone',
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('phone', $user->phone),
-			'required'  	=> 'required',
 			'class'				=> 'form-control input-lg',
 		);
 		$this->data['password'] = array(
@@ -726,6 +720,19 @@ class Auth extends CI_Controller {
 		);
 
 		$this->_render_page('auth/edit_user', $this->data);
+	}
+
+	public function delete_user($id){
+		$user = $this->ion_auth->user()->row(); // mi recupero le info dell'utente corrente
+		$this->ion_auth->delete_user($id); // elimino l'utente richiesto
+
+		if($id == $user->id){ // se l'utente eliminato è l'utente correte faccio il logout e riporto alla schermata di login
+			$this->ion_auth->logout();
+			redirect('auth/login', 'refresh');
+		}else{
+			redirect('auth');
+		}
+		
 	}
 
 	// create a new group

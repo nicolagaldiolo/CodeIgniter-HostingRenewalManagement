@@ -49,7 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 						<?php endforeach?>
 													</td>
 													<td><?php echo ($user->active) ? anchor("auth/deactivate/".$user->id, lang('index_active_link'), array('class' => 'btn btn-default btn-xs')) : anchor("auth/activate/". $user->id, lang('index_inactive_link'), array('class' => 'btn btn-default btn-xs'));?></td>
-													<td><?php echo anchor("auth/edit_user/".$user->id, '<i class="fa fa-pencil"></i>', array('class' => 'btn btn-round btn-default btn-xs')) ;?></td>
+													<td>
+														<?php echo anchor("auth/edit_user/".$user->id, '<i class="fa fa-pencil"></i>', array('class' => 'btn btn-round btn-default btn-xs')) ;?>
+														<?php echo anchor("auth/delete_user/".$user->id, '<i class="fa fa-trash-o"></i>', array('class' => 'actionDelete btn btn-round btn-default btn-xs')) ;?>
+													</td>
 												</tr>
 											<?php endforeach; ?>
 										</tbody>
