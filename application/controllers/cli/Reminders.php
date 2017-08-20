@@ -36,7 +36,7 @@ class Reminders extends CI_Controller {
           $this->email->set_mailtype("html");
           $this->email->set_newline("\r\n");
           $this->email->to($user->email);
-          $this->email->from('galdiolo.nicola@gmail.com','Hosting manager');
+          $this->email->from('no-reply@milkshakethemes.com','MilkshakeThemes Hosting manager');
           $this->email->subject("Promemoria Servizi in scadenza {$month}");
           $this->email->message($this->load->view('email_template/reminder', $data, true));
           $this->email->send();
