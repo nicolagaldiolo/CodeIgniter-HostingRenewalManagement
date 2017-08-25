@@ -2563,7 +2563,9 @@ if (typeof NProgress != 'undefined') {
 						  className: "btn-sm"
 						},
 					  ],
-					  responsive: true
+						responsive: true,
+						pageLength: 50,
+						order: [[ 3, "asc" ]]
 					});
 				  }
 				};
