@@ -19,6 +19,7 @@ html , body{
   padding: 5px 12px;
   border-radius: 20px;
   color:#fff;
+  white-space: none;
 }
 
 .auth{

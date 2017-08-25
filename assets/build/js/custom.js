@@ -2564,7 +2564,7 @@ if (typeof NProgress != 'undefined') {
 						},
 					  ],
 						responsive: true,
-						pageLength: 50,
+						//pageLength: 50,
 						order: [[ 3, "asc" ]]
 					});
 				  }
