@@ -1,4 +1,15 @@
 ###################
+Run migrate after clone repo
+###################
+php index.php migrate
+
+###################
+Default Login
+###################
+Username: admin@admin.com 
+Password: password
+
+###################
 What is CodeIgniter
 ###################
 
